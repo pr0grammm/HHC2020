@@ -1,0 +1,880 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>7) Solve the Sleigh's CAN-D-BUS Problem - KringleCon HHC2020 🎅</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-solve-the-sleighs-can-d-bus-problem" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-header-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            KringleCon HHC2020 🎅
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              7) Solve the Sleigh's CAN-D-BUS Problem
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    KringleCon HHC2020 🎅
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective3/" class="md-nav__link">
+      3) Point-of-Sale Password Recovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective5/" class="md-nav__link">
+      5) Open HID Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective6/" class="md-nav__link">
+      6) Splunk Challenge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7) Solve the Sleigh's CAN-D-BUS Problem
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-wunorse-openslae" class="md-nav__link">
+    Chat with Wunorse Openslae
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-wunorse-openslae" class="md-nav__link">
+    Hints Courtesy Wunorse Openslae
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Wunorse Openslae">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-id-codes" class="md-nav__link">
+    CAN ID Codes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-up-with-the-door" class="md-nav__link">
+    What's up with the door?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-up-with-the-brakes" class="md-nav__link">
+    What's up with the brakes?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective9/" class="md-nav__link">
+      9) ARP Shenanigans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11a/" class="md-nav__link">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11b/" class="md-nav__link">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" data-md-state="indeterminate" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal1/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal2/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal3/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal4/" class="md-nav__link">
+      Speaker Door Open
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal5/" class="md-nav__link">
+      Speaker Lights On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal6/" class="md-nav__link">
+      Speaker Vending Machine On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal7/" class="md-nav__link">
+      Regex Toy Sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal8/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal12/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-wunorse-openslae" class="md-nav__link">
+    Chat with Wunorse Openslae
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-wunorse-openslae" class="md-nav__link">
+    Hints Courtesy Wunorse Openslae
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Wunorse Openslae">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can-id-codes" class="md-nav__link">
+    CAN ID Codes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-up-with-the-door" class="md-nav__link">
+    What's up with the door?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-up-with-the-brakes" class="md-nav__link">
+    What's up with the brakes?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="7-solve-the-sleighs-can-d-bus-problem">7) Solve the Sleigh's CAN-D-BUS Problem</h1>
+<blockquote>
+<p>difficulty 🎄🎄🎄</p>
+</blockquote>
+<h2 id="the-objective">The Objective</h2>
+<blockquote>
+<p>Jack Frost is somehow inserting malicious messages onto the sleigh's CAN-D bus. We need you to exclude the malicious messages and no others to fix the sleigh. Visit the NetWars room on the roof and talk to Wunorse Openslae for hints.</p>
+</blockquote>
+<h2 id="chat-with-wunorse-openslae">Chat with Wunorse Openslae</h2>
+<blockquote>
+<p>Hey Santa!</p>
+<p>Those tweaks you made to the sled just don’t seem right to me.</p>
+<p>I can’t figure out what’s wrong, but maybe you can check it out to fix it.</p>
+</blockquote>
+<h2 id="hints-courtesy-wunorse-openslae">Hints Courtesy Wunorse Openslae</h2>
+<p>The following hint is unlocked once we help Wunorse Openslae with the CAN bus terminal challenge.</p>
+<h3 id="can-id-codes">CAN ID Codes</h3>
+<blockquote>
+<p>Try filtering out one CAN-ID at a time and create a table of what each might pertain to. What's up with the brakes and doors?</p>
+</blockquote>
+<h2 id="solution">Solution</h2>
+<p>Let us try to match each CAN-ID to a particular component.19B, 080, 018 etc are few ID's seen. We can take a screenshot to better see the ID's available.</p>
+<p><img alt="allids" src="../../images/obj7/allids.PNG" /></p>
+<p>Now to create a table matching a CAN-ID to a component let us first add rules as shown below. These rules exclude all ID's so at this point no numbers should fly across our output pane.</p>
+<p><img alt="excludeall" src="../../images/obj7/excludeall.PNG" /></p>
+<p>Now by selectively removing one rule at a time and trying out all the different components and noting any changes in the output pane we can find the mapping. The table below contains the mappings.188 CAN-ID doesn't seem to map to any component but this is fine. This could be an alive-check or heartbeat signal.</p>
+<table>
+<thead>
+<tr>
+<th>CAN-ID</th>
+<th>component</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>244</td>
+<td>Acceleration</td>
+</tr>
+<tr>
+<td>080</td>
+<td>Brake</td>
+</tr>
+<tr>
+<td>019</td>
+<td>Steering</td>
+</tr>
+<tr>
+<td>02A</td>
+<td>start/stop</td>
+</tr>
+<tr>
+<td>19B</td>
+<td>door(lock/unlock)</td>
+</tr>
+<tr>
+<td>188</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>The hints specifically mention brakes and door(lock/unlock) so let us focus on these components first.</p>
+<h3 id="whats-up-with-the-door">What's up with the door?</h3>
+<p>Let's allow only only ID 19B(which corresponds to door) and block all others.We see that on pressing lock the output message is. 19B#000000000000 and on pressing unlock the output message is 19B#00000F000000. Apart from these two we see another message 19B#0000000F2057.</p>
+<p><img alt="door" src="../../images/obj7/door.gif" /></p>
+<p>message 19B#0000000F2057 appears spurious and we can add a rule to exclude it.</p>
+<p><img alt="door" src="../../images/obj7/door.PNG" /></p>
+<h3 id="whats-up-with-the-brakes">What's up with the brakes?</h3>
+<p>Let's allow only only ID 19B(which corresponds to door) and block all others.</p>
+<p><img alt="brake" src="../../images/obj7/brake.gif" /></p>
+<p>We see there are some spurious negative messages being sent.For example for brake value set to fifteen we see the message 080#0000000F which is expected but also see some messages of the form 0xFFFFFFF*.</p>
+<p><img alt="brake" src="../../images/obj7/brakeprob.PNG" /></p>
+<p>These are negative messages (two's complement form) but brake values range from 0-100. So let's add a rule to exclude these negative values as well.</p>
+<p><img alt="2rules" src="../../images/obj7/2rules.PNG" /></p>
+<h2 id="rejoice">Rejoice</h2>
+<p>We found both rules to exclude malicious messages and defrosted the sleigh!</p>
+<p><img alt="answer" src="../../images/obj7/answer.PNG" /></p>
+<blockquote>
+<p>Answer</p>
+<p>This challenge doesn't require us to input an aswer. The objective is completed automatically when all malicious messages have been excluded.</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective6/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                6) Splunk Challenge
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../objective8/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                8) Broken Tag Generator
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.expand'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

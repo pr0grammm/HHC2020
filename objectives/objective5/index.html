@@ -1,0 +1,1066 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>5) Open HID Lock - KringleCon HHC2020 🎅</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-open-hid-lock" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-header-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            KringleCon HHC2020 🎅
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              5) Open HID Lock
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    KringleCon HHC2020 🎅
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective3/" class="md-nav__link">
+      3) Point-of-Sale Password Recovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        5) Open HID Lock
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      5) Open HID Lock
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-bushy-evergreen" class="md-nav__link">
+    Chat with Bushy Evergreen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-fitzy-shortstack" class="md-nav__link">
+    Chat with Fitzy Shortstack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-bushy-evergreen" class="md-nav__link">
+    Hints Courtesy Bushy Evergreen
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Bushy Evergreen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-a-proxmark" class="md-nav__link">
+    What's a Proxmark?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-badges-with-proxmark" class="md-nav__link">
+    Reading Badges with Proxmark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impersonating-badges-with-proxmark" class="md-nav__link">
+    Impersonating Badges with Proxmark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-list-of-essential-proxmark-commands" class="md-nav__link">
+    Short List of Essential Proxmark Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxmark-talk" class="md-nav__link">
+    Proxmark Talk
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-proxmark" class="md-nav__link">
+    Finding the Proxmark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-proxmark-for-impersonation" class="md-nav__link">
+    Using the Proxmark for Impersonation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theres-more" class="md-nav__link">
+    There's more...
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective6/" class="md-nav__link">
+      6) Splunk Challenge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective7/" class="md-nav__link">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective9/" class="md-nav__link">
+      9) ARP Shenanigans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11a/" class="md-nav__link">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11b/" class="md-nav__link">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" data-md-state="indeterminate" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal1/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal2/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal3/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal4/" class="md-nav__link">
+      Speaker Door Open
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal5/" class="md-nav__link">
+      Speaker Lights On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal6/" class="md-nav__link">
+      Speaker Vending Machine On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal7/" class="md-nav__link">
+      Regex Toy Sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal8/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal12/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-bushy-evergreen" class="md-nav__link">
+    Chat with Bushy Evergreen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-fitzy-shortstack" class="md-nav__link">
+    Chat with Fitzy Shortstack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-bushy-evergreen" class="md-nav__link">
+    Hints Courtesy Bushy Evergreen
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Bushy Evergreen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-a-proxmark" class="md-nav__link">
+    What's a Proxmark?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-badges-with-proxmark" class="md-nav__link">
+    Reading Badges with Proxmark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impersonating-badges-with-proxmark" class="md-nav__link">
+    Impersonating Badges with Proxmark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-list-of-essential-proxmark-commands" class="md-nav__link">
+    Short List of Essential Proxmark Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxmark-talk" class="md-nav__link">
+    Proxmark Talk
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-proxmark" class="md-nav__link">
+    Finding the Proxmark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-proxmark-for-impersonation" class="md-nav__link">
+    Using the Proxmark for Impersonation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#theres-more" class="md-nav__link">
+    There's more...
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="5-open-hid-lock">5) Open HID Lock</h1>
+<blockquote>
+<p>difficulty 🎄🎄</p>
+</blockquote>
+<h2 id="the-objective">The Objective</h2>
+<blockquote>
+<p>Open the HID lock in the Workshop. Talk to Bushy Evergreen near the talk tracks for hints on this challenge. You may also visit Fitzy Shortstack in the kitchen for tips.</p>
+</blockquote>
+<h2 id="chat-with-bushy-evergreen">Chat with Bushy Evergreen</h2>
+<p>After helping Bushy Evergreen with the <strong>Speaker Door Open</strong> challenge in the Speaker UNprep Terminal the following conversation ensues.</p>
+<blockquote>
+<p>That's it! What a great password...</p>
+<p>Oh, this might be a good time to mention another lock in the castle.</p>
+<p>Santa asked me to ask you to evaluate the security of our new HID lock.</p>
+<p>If ever you find yourself in posession of a Proxmark3, click it in your badge to interact with it.</p>
+<p>It's a slick device that can read others' badges!</p>
+</blockquote>
+<p>The following dialogue is unlocked after we help Bushy Evergreen with the <strong>Speaker Lights On</strong> challenge in the Speaker UNprep Terminal</p>
+<blockquote>
+<p>Wow - that worked? I mean, it worked! Hooray for opportunistic decryption, I guess!</p>
+<p>Oh, did I mention that the Proxmark can simulate badges? Cool, huh?</p>
+<p>There are lots of references online to help.</p>
+<p>In fact, there's a talk going on right now!</p>
+</blockquote>
+<p>The following dialogue is unlocked after we help Bushy Evergreen with the <strong>Speaker Vending Machine</strong> challenge in the Speaker UNprep Terminal</p>
+<blockquote>
+<p>And that Proxmark thing? Some people scan other people's badges and try those codes at locked doors.</p>
+<p>Other people scan one or two and just try to vary room numbers.</p>
+<p>Do whatever works best for you!</p>
+</blockquote>
+<h2 id="chat-with-fitzy-shortstack">Chat with Fitzy Shortstack</h2>
+<p>After helping Fitzy Shortstack with the 33.6 Kbps challenge the following conversation ensues.</p>
+<blockquote>
+<p>ahem! We did it! Thank you!!</p>
+<p>Anytime you feel like changing the color scheme up, just pick up the phone!</p>
+<p>You know, Santa really seems to trust Shinny Upatree...</p>
+</blockquote>
+<h2 id="hints-courtesy-bushy-evergreen">Hints Courtesy Bushy Evergreen</h2>
+<p>On solving the Speaker Door Open challenge we get the following hints</p>
+<h3 id="whats-a-proxmark">What's a Proxmark?</h3>
+<blockquote>
+<p>The Proxmark is a multi-function RFID device, capable of capturing and replaying RFID events.</p>
+</blockquote>
+<h3 id="reading-badges-with-proxmark">Reading Badges with Proxmark</h3>
+<blockquote>
+<p>You can use a Proxmark to capture the facility code and ID value of HID ProxCard badge by running lf hid read when you are close enough to someone with a badge.</p>
+</blockquote>
+<p>On solving the Speaker Lights On challenge we get the following hints</p>
+<h3 id="impersonating-badges-with-proxmark">Impersonating Badges with Proxmark</h3>
+<blockquote>
+<p>You can also use a Proxmark to impersonate a badge to unlock a door, if the badge you impersonate has access. <code>lf hid sim -r 2006......</code></p>
+</blockquote>
+<h3 id="short-list-of-essential-proxmark-commands">Short List of Essential Proxmark Commands</h3>
+<blockquote>
+<p>There's a <a href="https://gist.github.com/joswr1ght/efdb669d2f3feb018a22650ddc01f5f2">short list of essential Proxmark commands</a> also available.</p>
+</blockquote>
+<h3 id="proxmark-talk">Proxmark Talk</h3>
+<blockquote>
+<p>Larry Pesce knows a thing or two about <a href="https://www.youtube.com/watch?v=647U85Phxgo">HID attacks</a>. He's the author of a course on wireless hacking!</p>
+</blockquote>
+<h2 id="solution">Solution</h2>
+<h3 id="background">Background</h3>
+<p>From all the hints we have gathered combined with Larry Pesce's amazing talk we understand that HID ProxCard is a popular system for door access control.</p>
+<p>Every HID ProxCard badge has a facility code and card ID value.</p>
+<p><img alt="alt text" src="../../images/obj5/badge.PNG" /></p>
+<p>These values are transmitted wirelessly first to the HID card reader and then via wire using the Weigand protocol to a controller which - based on some policies - decides whether access is to be granted.</p>
+<p><img alt="alt text" src="../../images/obj5/working.PNG" /></p>
+<p>The Proxmark is a multi-function RFID device, capable of capturing and replaying RFID events and we can use it to to capture the facility code and ID value of HID ProxCard badge by running <code>lf hid read</code> when we are close enough to someone with a badge.
+We can replay the captured data to a card reader using the command <code>lf hid sim -r &lt;data&gt;</code> and we would be able to unlock the door if the badge we are impersonating has access.</p>
+<h3 id="finding-the-proxmark">Finding the Proxmark</h3>
+<p>Pick up the elevator 1.5 button found in the Speaker UNpreparedness room and visit floor one and a half.</p>
+<p><img alt="alt text" src="../../images/obj5/elevator1.5button.PNG" /></p>
+<p>Pick up the proxmark which can be found in the Wrapping Room (adjacent to the workshop).</p>
+<p><img alt="alt text" src="../../images/obj5/proxmark.PNG" /></p>
+<h3 id="using-the-proxmark-for-impersonation">Using the Proxmark for Impersonation</h3>
+<p>Now we need to read the badge of an elf who has access to the HID lock in the Workshop. In our chat with Fitzy Shortstack we learned that Santa really seems to trust Shinny Upatree. 
+To read Shinny's badge we stand close to him, open the proxmark CLI from our items and issue the <code>lf hid read command</code>.</p>
+<pre><code class="language-bash">  ██████╗ ███╗   ███╗█████╗ 
+  ██╔══██╗████╗ ████║╚═══██╗
+  ██████╔╝██╔████╔██║ ████╔╝
+  ██╔═══╝ ██║╚██╔╝██║ ╚══██╗
+  ██║     ██║ ╚═╝ ██║█████╔╝       Iceman ☕
+  ╚═╝     ╚═╝     ╚═╝╚════╝    ❄️ bleeding edge
+  https://github.com/rfidresearchgroup/proxmark3/
+[=] Session log /home/elf/.proxmark3/logs/log_20210109.txt
+[=] Creating initial preferences file
+[=] Saving preferences...
+[+] saved to json file /home/elf/.proxmark3/preferences.json
+ [ Proxmark3 RFID instrument ]
+ [ CLIENT ]
+  client: RRG/Iceman/master/v4.9237-2066-g3de856045 2020-11-25 16:29:31
+  compiled with GCC 7.5.0 OS:Linux ARCH:x86_64
+ [ PROXMARK3 ]
+  firmware.................. PM3RDV4
+  external flash............ present
+  smartcard reader.......... present
+  FPC USART for BT add-on... absent
+ [ ARM ]
+  LF image built for 2s30vq100 on 2020-07-08 at 23: 8: 7
+  HF image built for 2s30vq100 on 2020-07-08 at 23: 8:19
+  HF FeliCa image built for 2s30vq100 on 2020-07-08 at 23: 8:30
+ [ Hardware ]
+  --= uC: AT91SAM7S512 Rev B
+  --= Embedded Processor: ARM7TDMI
+  --= Nonvolatile Program Memory Size: 512K bytes, Used: 304719 bytes (58%) Free: 219569 
+bytes (42%)
+  --= Second Nonvolatile Program Memory Size: None
+  --= Internal SRAM Size: 64K bytes
+  --= Architecture Identifier: AT91SAM7Sxx Series
+  --= Nonvolatile Program Memory Type: Embedded Flash Memory
+[magicdust] pm3 --&gt; lf hid read
+#db# TAG ID: 2006e22f13 (6025) - Format Len: 26 bit - FC: 113 - Card: 6025
+</code></pre>
+<p>We detect that Shinny's badge has a facility code= 113, a card ID= 6025 and TAG ID=2006e22f13. Now head back over to the HID card reader in the Workshop and issue the command <code>lf hid sim -r 2006e22f13</code> while standing close to the reader. Once the simulation stops after 10 seconds close the terminal.</p>
+<pre><code class="language-bash">██████╗ ███╗   ███╗█████╗ 
+  ██╔══██╗████╗ ████║╚═══██╗
+  ██████╔╝██╔████╔██║ ████╔╝
+  ██╔═══╝ ██║╚██╔╝██║ ╚══██╗
+  ██║     ██║ ╚═╝ ██║█████╔╝       Iceman ☕
+  ╚═╝     ╚═╝     ╚═╝╚════╝    ❄️ bleeding edge
+  https://github.com/rfidresearchgroup/proxmark3/
+[=] Session log /home/elf/.proxmark3/logs/log_20210109.txt
+[=] Creating initial preferences file
+[=] Saving preferences...
+[+] saved to json file /home/elf/.proxmark3/preferences.json
+ [ Proxmark3 RFID instrument ]
+ [ CLIENT ]
+  client: RRG/Iceman/master/v4.9237-2066-g3de856045 2020-11-25 16:29:31
+  compiled with GCC 7.5.0 OS:Linux ARCH:x86_64
+ [ PROXMARK3 ]
+  firmware.................. PM3RDV4
+  external flash............ present
+  smartcard reader.......... present
+  FPC USART for BT add-on... absent
+ [ ARM ]
+  LF image built for 2s30vq100 on 2020-07-08 at 23: 8: 7
+  HF image built for 2s30vq100 on 2020-07-08 at 23: 8:19
+  HF FeliCa image built for 2s30vq100 on 2020-07-08 at 23: 8:30
+  [ Hardware ]
+
+  --= uC: AT91SAM7S512 Rev B
+  --= Embedded Processor: ARM7TDMI
+  --= Nonvolatile Program Memory Size: 512K bytes, Used: 304719 bytes (58%) Free: 219569 bytes (4
+2%)
+  --= Second Nonvolatile Program Memory Size: None
+  --= Internal SRAM Size: 64K bytes
+  --= Architecture Identifier: AT91SAM7Sxx Series
+  --= Nonvolatile Program Memory Type: Embedded Flash Memory
+[magicdust] pm3 --&gt; lf hid sim -r 2006e22f13
+[=] Simulating HID tag using raw 2006e22f13
+[=] Stopping simulation after 10 seconds.
+[=] Done
+</code></pre>
+<h2 id="rejoice">Rejoice</h2>
+<p>We successfully opened the HID lock!</p>
+<blockquote>
+<p>Answer</p>
+<p>Objective is automatically completed when we unlock the door</p>
+</blockquote>
+<h2 id="theres-more">There's more...</h2>
+<p>Walk through the unlocked door. On emerging through the portrait at the other end...</p>
+<p>🥁🥁🥁</p>
+<p>...</p>
+<p>...</p>
+<p><img alt="alt text" src="../../images/obj5/besanta.PNG" /></p>
+<p>we have magically transformed into Santa!
+We also unlock 7 more objectives.</p>
+<p><strong>TIP: We can transform back into ourselves by walking back through the portrait we  emerged from</strong></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective4/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                4) Operate the Santavator
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../objective6/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                6) Splunk Challenge
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.expand'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

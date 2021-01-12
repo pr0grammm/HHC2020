@@ -1,0 +1,1073 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>3) Point-of-Sale Password Recovery - KringleCon HHC2020 🎅</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-point-of-sale-password-recovery" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-header-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            KringleCon HHC2020 🎅
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              3) Point-of-Sale Password Recovery
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    KringleCon HHC2020 🎅
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3) Point-of-Sale Password Recovery
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      3) Point-of-Sale Password Recovery
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-sugarplum-mary" class="md-nav__link">
+    Chat with Sugarplum Mary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-sugarplum-mary" class="md-nav__link">
+    Hints Courtesy Sugarplum Mary
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Sugarplum Mary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#electron-applications" class="md-nav__link">
+    Electron Applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electron-asar-extraction" class="md-nav__link">
+    Electron ASAR Extraction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-asar-file" class="md-nav__link">
+    Finding the asar file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extracting-the-source-code" class="md-nav__link">
+    Extracting the source code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective5/" class="md-nav__link">
+      5) Open HID Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective6/" class="md-nav__link">
+      6) Splunk Challenge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective7/" class="md-nav__link">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective9/" class="md-nav__link">
+      9) ARP Shenanigans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11a/" class="md-nav__link">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11b/" class="md-nav__link">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" data-md-state="indeterminate" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal1/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal2/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal3/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal4/" class="md-nav__link">
+      Speaker Door Open
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal5/" class="md-nav__link">
+      Speaker Lights On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal6/" class="md-nav__link">
+      Speaker Vending Machine On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal7/" class="md-nav__link">
+      Regex Toy Sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal8/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal12/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-sugarplum-mary" class="md-nav__link">
+    Chat with Sugarplum Mary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-sugarplum-mary" class="md-nav__link">
+    Hints Courtesy Sugarplum Mary
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Sugarplum Mary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#electron-applications" class="md-nav__link">
+    Electron Applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electron-asar-extraction" class="md-nav__link">
+    Electron ASAR Extraction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-asar-file" class="md-nav__link">
+    Finding the asar file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extracting-the-source-code" class="md-nav__link">
+    Extracting the source code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="3-point-of-sale-password-recovery">3) Point-of-Sale Password Recovery</h1>
+<blockquote>
+<p>difficulty 🎄</p>
+</blockquote>
+<h2 id="the-objective">The Objective</h2>
+<blockquote>
+<p>Help Sugarplum Mary in the Courtyard find the supervisor password for the point-of-sale terminal. What's the password?</p>
+</blockquote>
+<h2 id="chat-with-sugarplum-mary">Chat with Sugarplum Mary</h2>
+<p>After we help Sugarplum Mary with the Linux Primer Terminal Challenge the following conversation ensues.</p>
+<blockquote>
+<p>You did it - great! Maybe you can help me configure my postfix mail server on Gentoo!</p>
+<p>Just kidding!</p>
+<p>Hey, wouldja' mind helping me get into my point-of-sale terminal?</p>
+<p>It's down, and we kinda' need it running.</p>
+<p>Problem is: it is asking for a password. I never set one!</p>
+<p>Can you help me figure out what it is so I can get set up?</p>
+<p>Shinny says this might be an Electron application.</p>
+<p>I hear there's a way to extract an ASAR file from the binary, but I haven't looked into it yet.</p>
+<p>You did it - great! Maybe you can help me configure my postfix mail server on Gentoo!</p>
+<p>Just kidding!</p>
+<p>Hey, wouldja' mind helping me get into my point-of-sale terminal?</p>
+<p>It's down, and we kinda' need it running.</p>
+<p>Problem is: it is asking for a password. I never set one!</p>
+<p>Can you help me figure out what it is so I can get set up?</p>
+<p>Shinny says this might be an Electron application.</p>
+<p>I hear there's a way to extract an ASAR file from the binary, but I haven't looked into it yet.</p>
+</blockquote>
+<h2 id="hints-courtesy-sugarplum-mary">Hints Courtesy Sugarplum Mary</h2>
+<h3 id="electron-applications">Electron Applications</h3>
+<blockquote>
+<p>It's possible to extract the source code from an <a href="https://www.electronjs.org/">Electron</a> app.</p>
+</blockquote>
+<h3 id="electron-asar-extraction">Electron ASAR Extraction</h3>
+<blockquote>
+<p>There are <a href="https://www.npmjs.com/package/asar">tools</a> and <a href="https://medium.com/how-to-electron/how-to-get-source-code-of-any-electron-application-cbb5c7726c37">guides</a> explaining how to extract ASAR from Electron apps.</p>
+</blockquote>
+<h2 id="solution">Solution</h2>
+<p>We need to find the password for the POS terminal. The POS terminal is an Electron Application. Electron is a framework for building cross-platform desktop apps with web technologies like JavaScript, HTML, and CSS. Electron applications are generally packaged using <a href="https://github.com/electron/asar">asar</a> in an attempt to hide the source code but this process is reversible and it is possible to extract the source code from an asar file.</p>
+<h3 id="finding-the-asar-file">Finding the asar file</h3>
+<p>First let's download the Electron app from the terminal so we can inspect it
+<img alt="inspect" src="../../images/obj3/inspect.PNG" /></p>
+<p>We can use 7-Zip tool to extract a self extracting *.exe file.</p>
+<pre><code>jinglebell rock:~/kringle/objective3$file santa-shop.exe
+santa-shop.exe: PE32 executable (GUI) Intel 80386, for MS Windows, Nullsoft Installer self-extracting archive
+</code></pre>
+<p>Let's extract the santa-shop.exe file and find the asar file containing the source code.</p>
+<pre><code class="language-bash">jinglebell rock:~/kringle/objective3$7z x santa-shop.exe -osanta-shop
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz (806EA),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 49824644 bytes (48 MiB)
+
+Extracting archive: santa-shop.exe
+--
+Path = santa-shop.exe
+Type = Nsis
+Physical Size = 49824644
+Method = Deflate
+Solid = -
+Headers Size = 102546
+Embedded Stub Size = 57856
+SubType = NSIS-3 Unicode BadCmd=11
+
+Everything is Ok
+
+Files: 9
+Size:       50033887
+Compressed: 49824644
+jinglebell rock:~/kringle/objective3$cd santa-shop/
+jinglebell rock:~/kringle/objective3/santa-shop$tree
+.
+├── $PLUGINSDIR
+│   ├── SpiderBanner.dll
+│   ├── StdUtils.dll
+│   ├── System.dll
+│   ├── WinShell.dll
+│   ├── app-64.7z
+│   ├── nsExec.dll
+│   ├── nsProcess.dll
+│   └── nsis7z.dll
+└── Uninstall santa-shop.exe
+
+1 directory, 9 files
+jinglebell rock:~/kringle/objective3/santa-shop$cd '$PLUGINSDIR'/
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR$7z x app-64.7z -oapp
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz (806EA),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 49323645 bytes (48 MiB)
+
+Extracting archive: app-64.7z
+--
+Path = app-64.7z
+Type = 7z
+Physical Size = 49323645
+Headers Size = 1493
+Method = LZMA2:20 LZMA:20 BCJ2
+Solid = -
+Blocks = 74
+
+Everything is Ok
+
+Folders: 3
+Files: 74
+Size:       163007029
+Compressed: 49323645
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR$cd app/
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app$tree
+.
+├── LICENSE.electron.txt
+├── LICENSES.chromium.html
+├── chrome_100_percent.pak
+├── chrome_200_percent.pak
+├── d3dcompiler_47.dll
+├── ffmpeg.dll
+├── icudtl.dat
+├── libEGL.dll
+├── libGLESv2.dll
+├── locales
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── bg.pak
+│   ├── bn.pak
+│   ├── ca.pak
+│   ├── cs.pak
+│   ├── da.pak
+│   ├── de.pak
+│   ├── el.pak
+│   ├── en-GB.pak
+│   ├── en-US.pak
+│   ├── es-419.pak
+│   ├── es.pak
+│   ├── et.pak
+│   ├── fa.pak
+│   ├── fi.pak
+│   ├── fil.pak
+│   ├── fr.pak
+│   ├── gu.pak
+│   ├── he.pak
+│   ├── hi.pak
+│   ├── hr.pak
+│   ├── hu.pak
+│   ├── id.pak
+│   ├── it.pak
+│   ├── ja.pak
+│   ├── kn.pak
+│   ├── ko.pak
+│   ├── lt.pak
+│   ├── lv.pak
+│   ├── ml.pak
+│   ├── mr.pak
+│   ├── ms.pak
+│   ├── nb.pak
+│   ├── nl.pak
+│   ├── pl.pak
+│   ├── pt-BR.pak
+│   ├── pt-PT.pak
+│   ├── ro.pak
+│   ├── ru.pak
+│   ├── sk.pak
+│   ├── sl.pak
+│   ├── sr.pak
+│   ├── sv.pak
+│   ├── sw.pak
+│   ├── ta.pak
+│   ├── te.pak
+│   ├── th.pak
+│   ├── tr.pak
+│   ├── uk.pak
+│   ├── vi.pak
+│   ├── zh-CN.pak
+│   └── zh-TW.pak
+├── resources
+│   ├── app-update.yml
+│   ├── app.asar
+│   └── elevate.exe
+├── resources.pak
+├── santa-shop.exe
+├── snapshot_blob.bin
+├── swiftshader
+│   ├── libEGL.dll
+│   └── libGLESv2.dll
+├── v8_context_snapshot.bin
+├── vk_swiftshader.dll
+├── vk_swiftshader_icd.json
+└── vulkan-1.dll
+
+3 directories, 74 files
+</code></pre>
+<p>We found the app.asar in the <code>resources</code> directory.</p>
+<pre><code class="language-bash">jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app$cd resources/
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources$tree
+.
+├── app-update.yml
+├── app.asar
+└── elevate.exe
+
+0 directories, 3 files
+</code></pre>
+<h3 id="extracting-the-source-code">Extracting the source code</h3>
+<p>Let's use the instructions in hint to extract the asar</p>
+<pre><code>jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources$sudo npm install -g asar
+/usr/local/bin/asar -&gt; /usr/local/lib/node_modules/asar/bin/asar.js
++ asar@3.0.3
+added 17 packages from 53 contributors in 1.029s
+
+
+   ╭─────────────────────────────────────────────────────────────────╮
+   │                                                                 │
+   │      New patch version of npm available! 6.14.4 → 6.14.11       │
+   │   Changelog: https://github.com/npm/cli/releases/tag/v6.14.11   │
+   │                Run npm install -g npm to update!                │
+   │                                                                 │
+   ╰─────────────────────────────────────────────────────────────────╯
+
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources$mkdir POS-sourcecode
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources$asar extract app.asar POS-sourcecode
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources$cd POS-sourcecode/
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources/POS-sourcecode$tree
+.
+├── README.md
+├── img
+│   ├── network1.png
+│   ├── network2.png
+│   ├── network3.png
+│   └── network4.png
+├── index.html
+├── main.js
+├── package.json
+├── preload.js
+├── renderer.js
+└── style.css
+
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources/POS-sourcecode$cat README.md
+Remember, if you need to change Santa's passwords, it's at the top of main.js!
+
+jinglebell rock:~/kringle/objective3/santa-shop/$PLUGINSDIR/app/resources/POS-sourcecode$head main.js
+// Modules to control application life and create native browser window
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
+
+const SANTA_PASSWORD = 'santapass';
+
+// TODO: Maybe get these from an API?
+const products = [
+  {
+    name: 'Candy Cane',
+</code></pre>
+<h2 id="rejoice">Rejoice</h2>
+<p>We found the password for the POS terminal by viewing the source code!</p>
+<blockquote>
+<p>Answer</p>
+<p>santapass</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective2/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                2) Investigate S3 Bucket
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../objective4/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                4) Operate the Santavator
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.expand'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

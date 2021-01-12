@@ -1,0 +1,1034 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
+    
+    
+      
+        <title>11a) Naughty/Nice List with Blockchain Investigation Part 1 - KringleCon HHC2020 🎅</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ff6e42">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-orange" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11a-naughtynice-list-with-blockchain-investigation-part-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-header-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            KringleCon HHC2020 🎅
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              11a) Naughty/Nice List with Blockchain Investigation Part 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KringleCon HHC2020 🎅" class="md-nav__button md-logo" aria-label="KringleCon HHC2020 🎅">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    KringleCon HHC2020 🎅
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Objectives
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Objectives" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Objectives
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective1/" class="md-nav__link">
+      1) Uncover Santa's Gift List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective2/" class="md-nav__link">
+      2) Investigate S3 Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective3/" class="md-nav__link">
+      3) Point-of-Sale Password Recovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective4/" class="md-nav__link">
+      4) Operate the Santavator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective5/" class="md-nav__link">
+      5) Open HID Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective6/" class="md-nav__link">
+      6) Splunk Challenge
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective7/" class="md-nav__link">
+      7) Solve the Sleigh's CAN-D-BUS Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective8/" class="md-nav__link">
+      8) Broken Tag Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective9/" class="md-nav__link">
+      9) ARP Shenanigans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective10/" class="md-nav__link">
+      10) Defeat Fingerprint Sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11a) Naughty/Nice List with Blockchain Investigation Part 1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      11a) Naughty/Nice List with Blockchain Investigation Part 1
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-tinsel-upatree" class="md-nav__link">
+    Chat with Tinsel Upatree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-tangle-coalbox" class="md-nav__link">
+    Chat with Tangle Coalbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-tangle-coalbox" class="md-nav__link">
+    Hints Courtesy Tangle Coalbox
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Tangle Coalbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#md5-hash-collisions" class="md-nav__link">
+    MD5 Hash Collisions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-nonces" class="md-nav__link">
+    Viewing Nonces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicting-64-bit-nonce-values" class="md-nav__link">
+    Predicting 64 bit nonce values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-32-bit-nonces-from-64-bit-nonces" class="md-nav__link">
+    Generating 32 bit nonces from 64 bit nonces
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../objective11b/" class="md-nav__link">
+      11b) Naughty/Nice List with Blockchain Investigation Part 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" data-md-state="indeterminate" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Terminals
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Terminals" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Terminals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal1/" class="md-nav__link">
+      Kringle Kiosk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal2/" class="md-nav__link">
+      Linux Primer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal3/" class="md-nav__link">
+      Unescape Tmux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal4/" class="md-nav__link">
+      Speaker Door Open
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal5/" class="md-nav__link">
+      Speaker Lights On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal6/" class="md-nav__link">
+      Speaker Vending Machine On
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal7/" class="md-nav__link">
+      Regex Toy Sorting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal8/" class="md-nav__link">
+      CAN-Bus Investigation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../terminals/terminal12/" class="md-nav__link">
+      Snowball Game
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    The Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-tinsel-upatree" class="md-nav__link">
+    Chat with Tinsel Upatree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-with-tangle-coalbox" class="md-nav__link">
+    Chat with Tangle Coalbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hints-courtesy-tangle-coalbox" class="md-nav__link">
+    Hints Courtesy Tangle Coalbox
+  </a>
+  
+    <nav class="md-nav" aria-label="Hints Courtesy Tangle Coalbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#md5-hash-collisions" class="md-nav__link">
+    MD5 Hash Collisions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-nonces" class="md-nav__link">
+    Viewing Nonces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicting-64-bit-nonce-values" class="md-nav__link">
+    Predicting 64 bit nonce values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-32-bit-nonces-from-64-bit-nonces" class="md-nav__link">
+    Generating 32 bit nonces from 64 bit nonces
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejoice" class="md-nav__link">
+    Rejoice
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="11a-naughtynice-list-with-blockchain-investigation-part-1">11a) Naughty/Nice List with Blockchain Investigation Part 1</h1>
+<blockquote>
+<p>difficulty 🎄🎄🎄🎄🎄</p>
+</blockquote>
+<h2 id="the-objective">The Objective</h2>
+<blockquote>
+<p>Even though the chunk of the blockchain that you have ends with block 129996, can you predict the nonce for block 130000? Talk to Tangle Coalbox in the Speaker UNpreparedness Room for tips on prediction and Tinsel Upatree for more tips and <a href="https://download.holidayhackchallenge.com/2020/OfficialNaughtyNiceBlockchainEducationPack.zip">tools</a>. (Enter just the 16-character hex value of the nonce)</p>
+</blockquote>
+<h2 id="chat-with-tinsel-upatree">Chat with Tinsel Upatree</h2>
+<blockquote>
+<p>Howdy Santa! Just guarding the Naughty/Nice list on your desk.</p>
+<p>Santa, I don't know if you've heard, but something is very, very wrong...</p>
+<p>We tabulated the latest score of the Naughty/Nice Blockchain.</p>
+<p>Jack Frost is the nicest being in the world! Jack Frost!?!</p>
+<p>As you know, we only really start checking the Naughty/Nice totals as we get closer to the holidays.</p>
+<p>Out of nowhere, Jack Frost has this crazy score... positive 4,294,935,958 nice points!</p>
+<p>No one has EVER gotten a score that high! No one knows how it happened.</p>
+<p>Most of us recall Jack having a NEGATIVE score only a few days ago...</p>
+<p>Worse still, his huge positive score seems to have happened way back in March.</p>
+<p>Our first thought was that he somehow changed the blockchain - but, as you know, that isn't possible.</p>
+<p>We ran a validation of the blockchain and it all checks out.</p>
+<p>Even the smallest change to any block should make it invalid.</p>
+<p>Blockchains are huge, so we cut a one minute chunk from when Jack's big score registered back in March.</p>
+<p>You can get a slice of the Naughty/Nice blockchain on your desk.</p>
+</blockquote>
+<h2 id="chat-with-tangle-coalbox">Chat with Tangle Coalbox</h2>
+<p>After helping with the Snowball Game challenge the following conversation ensues.</p>
+<blockquote>
+<p>Wow, it really was all about abusing the pseudo-random sequence!</p>
+<p>I've been thinking, do you think someone could try and cheat the Naughty/Nice Blockchain with this same technique?</p>
+<p>I remember you told us about how if you have control over to bytes in a file, it's easy to create MD5 <a href="https://github.com/corkami/collisions">hash collisions</a>.</p>
+<p>But the nonce would have to be known ahead of time.</p>
+<p>We know that the blockchain works by "chaining" blocks together.</p>
+<p>There's no way you know who could change it without messing up the chain, right Santa?</p>
+<p>I'm going to look closer to spot if any of the blocks have been changed.</p>
+<p>If Jack was able to change the block AND the document without changing the hash... that would require a very <a href="https://github.com/cr-marcstevens/hashclash">UNIque hash COLLision</a>.</p>
+<p>Apparently Jack was able to change just 4 bytes in the block to completely change everything about it. It's like some sort of <a href="https://speakerdeck.com/ange/colltris">evil game</a> to him.</p>
+<p>I think I need to review my <a href="https://www.youtube.com/watch?v=7rLMl88p-ec">Human Behavior Naughty/Niceness</a> curriculum again.</p>
+</blockquote>
+<h2 id="hints-courtesy-tangle-coalbox">Hints Courtesy Tangle Coalbox</h2>
+<h3 id="md5-hash-collisions">MD5 Hash Collisions</h3>
+<blockquote>
+<p>If you have control over to bytes in a file, it's easy to create MD5 <a href="https://github.com/corkami/collisions">hash collisions</a>. Problem is: there's that nonce that he would have to know ahead of time.</p>
+</blockquote>
+<h2 id="solution">Solution</h2>
+<h3 id="background">Background</h3>
+<p>It s highly recommended to have completed the snowball game challenge before commencing this one as the main ideas of Mersenne Twister random number generators are explained in the hints and talk accompanying that challenge.</p>
+<p>To recap what we learned</p>
+<ul>
+<li>MT-19937 is a popular algorithm used in random number generation. However it is possible to predict upcoming values from preceding 624 generated numbers.</li>
+<li>the <code>random</code> module in python uses MT-19937 to generate random numbers</li>
+<li>MT-19937 outputs 32 bit integers but these integers may be used by applications to create other types of values such as floats, 64 bit integers, smaller integers etc.</li>
+</ul>
+<h3 id="viewing-nonces">Viewing Nonces</h3>
+<p>Let's view the blocks in the given blockchain to understand what the nonces look like. We can pick up blockchain.dat file from Santa's desk. Now we can use the tool OfficialNaughtyNiceBlockchainEducationPack.zip linked in the objective to view this blockchain. With docker installed run the script ./docker.sh to install dependencies. Uncomment the below lines in <code>naughty_nice.py</code> to load blockchain.dat into chain c2. Add the line <code>print(c2.blocks[0])</code> to print out all the blocks in the blockchain.</p>
+<pre><code># Note: This is how you would load and verify a blockchain contained in a file called blockchain.dat
+#
+    with open('official_public.pem', 'rb') as fh:
+        official_public_key = RSA.importKey(fh.read())
+    c2 = Chain(load=True, filename='blockchain.dat')
+    print('C2: Block chain verify: %s' % (c2.verify_chain(official_public_key)))
+</code></pre>
+<p>We can see what a block looks like below</p>
+<pre><code>Chain Index: 128449
+              Nonce: e3e12de5edfb51e2
+                PID: 0803508ada0a5ebf
+                RID: aecbf777616d9fa4
+     Document Count: 1
+              Score: 000000dc (220)
+               Sign: 1 (Nice)
+         Data item: 1
+               Data Type: 05 (PDF)
+             Data Length: 000003a7
+                    Data: b'255044462d312e330a332030206f626a0a3c3c2f54797065202f506167650a2f506172656e742031203020520a2f5265736f75726365732032203020520a2f436f6e74656e74732034203020523e3e0a656e646f626a0a342030206f626a0a3c3c2f46696c746572202f466c6174654465636f6465202f4c656e677468203138323e3e0a73747265616d0a789c658eb10e82301884779ee212174da4b4a550ba9ae8e0dc1728e1078a501240797d51e3609c2eb9bbdc7712d788b34c638d4e16c9454048c6396c8db37d59a960c240a94d72d80a7bdb4e4458fc4008e37ac4c985ce0d3e60753366a280927c68e0f0a0c68523cafb82400f9a30b8db27297d838a5c8f71cbc61a7e6107d8ee17b91d29c41b79eeeb780cf1d2523cb7d4d7d80999994ca5b2d0ca68a3722db4fc5b484dc172f55e4813a912c925ff969e1a4c421d0a656e6473747265616d0a656e646f626a0a312030206f626a0a3c3c2f54797065202f50616765730a2f4b696473205b3320302052205d0a2f436f756e7420310a2f4d65646961426f78205b302030203631322e3030203739322e30305d0a3e3e0a656e646f626a0a352030206f626a0a3c3c2f54797065202f466f6e740a2f42617365466f6e74202f54696d65732d526f6d616e0a2f53756274797065202f54797065310a2f456e636f64696e67202f57696e416e7369456e636f64696e670a3e3e0a656e646f626a0a322030206f626a0a3c3c0a2f50726f63536574205b2f504446202f54657874202f496d61676542202f496d61676543202f496d616765495d0a2f466f6e74203c3c0a2f46312035203020520a3e3e0a2f584f626a656374203c3c0a3e3e0a3e3e0a656e646f626a0a372030206f626a0a3c3c0a2f54797065202f436174616c6f670a2f50616765732031203020520a2f4f70656e416374696f6e205b3320302052202f46697448206e756c6c5d0a2f506167654c61796f7574202f4f6e65436f6c756d6e0a3e3e0a656e646f626a0a787265660a3020380a303030303030303030302036353533352066200a30303030303030333339203030303030206e200a30303030303030353234203030303030206e200a30303030303030303039203030303030206e200a30303030303030303837203030303030206e200a30303030303030363238203030303030206e200a30303030303030373337203030303030206e200a747261696c65720a3c3c0a2f53697a6520380a2f526f6f742037203020520a3e3e0a7374617274787265660a3834300a2525454f460a0a'
+               Date: 03/24
+               Time: 13:21:00
+       PreviousHash: c6e2e6ecb785e7132c8003ab5aaba88d
+  Data Hash to Sign: 03cfb11504b8eee93b26aeb0d8ac39ff
+          Signature: b'PT4OZUq+vwfNDhqipxwt28NC4Hd7dw6N1i4XHMGkIMR53qy8dF47YwpqzEjW0EAbUYPZ+b/E4X3YjXUTI0VnoJ2VsJQWtIPwcGIk5ayMfe5dgrjuLle5NUyEpd1EpIPdiSLMnyvbJEzG3HfA2dpkNsXWtO/D5wFYWGEErAt/PyH9CK/QuV5w3ArCwEmM61KWV7XTmC38EQoIm9iz5QQIIBU2onlZUcBlZ81N+H8pL/utpArkLppSwdRdx5f2kHUTLM7I2egDAdHhQ5zPAbZLoJ03HYjEBGKXiSQjAGhqY47U2DmliyOEehchTmmq+JiBF3ozXiV5hm89y/mN2uUzmQ=='
+</code></pre>
+<p>We see that we have 64 bit nonces</p>
+<pre><code>e3e12de5edfb51e2
+</code></pre>
+<h3 id="predicting-64-bit-nonce-values">Predicting 64 bit nonce values</h3>
+<p>First we know that we can predict 32 bit nonce values. For example, those generated by random.randrange(0xFFFFFFFF) function in python. The random values generated in this case directly use the values generated by the MT-19937 PRNG. 
+but what about 64 bit values like those generated by random.randrange(0xFFFFFFFFFFFFFFFF) ? </p>
+<p>We can predict 64 bit values too because 64 bit random values in python are generated by combining randome values generated by combining two calls to random.randrange(0xFFFFFFFF). The first call to random.randrange(0xFFFFFFFF)gives us the lower 32 bits (LSBs) of the 64 bit nonce and the second 32 bit number generated makes up the higher bits (MSBs).</p>
+<pre><code>:):~/kringle/objective11a$python3
+Python 3.9.1 (default, Jan  5 2021, 06:37:06)
+[GCC 5.4.0 20160609] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import random
+&gt;&gt;&gt; random.seed(3)
+&gt;&gt;&gt; random.randrange(0xFFFFFFFF)
+1022050301
+&gt;&gt;&gt; random.randrange(0xFFFFFFFF)
+2545373330
+&gt;&gt;&gt; random.seed(3)
+&gt;&gt;&gt; random.randrange(0xFFFFFFFFFFFFFFFF)
+10932295209482665981
+&gt;&gt;&gt; hex(1022050301)
+'0x3ceb3ffd'
+&gt;&gt;&gt; hex(2545373330)
+'0x97b75092'
+&gt;&gt;&gt; hex(10932295209482665981)
+'0x97b750923ceb3ffd'
+</code></pre>
+<h3 id="generating-32-bit-nonces-from-64-bit-nonces">Generating 32 bit nonces from 64 bit nonces</h3>
+<p>I wrote this method within the Chain class to help dump all the 64 bit nonces into a file called <code>nonce.txt</code></p>
+<pre><code>def dump_nonce(self,filename=None):
+        if filename is None:
+            filename=&quot;nonce.txt&quot;
+        with open(filename, 'w') as fh:
+            for block in self.blocks:
+                fh.write(str(block.nonce)+&quot;\n&quot;)
+</code></pre>
+<p>After loading blockchain.dat in c2 we can call this method on the chain <code>c2.dump_nonce()</code> and we will get a text file with the nonces as below. We should have as many nonces as there are blocks in the chain.</p>
+<pre><code>root@b4a691264693:/usr/src/app# head nonce.txt
+16420456181932970466
+2411124002006105373
+733433256482262436
+15245055816112148478
+9815105154135256421
+17640805355937439261
+8521036384342535286
+17039961340102745403
+6897628261236889705
+2858753831574985463
+root@b4a691264693:/usr/src/app# wc nonce.txt
+ 1548  1548 31581 nonce.txt
+ ```
+
+ Now to convert these 64 bit values to 32 bit values we can make use of the below nifty python script.
+
+ ```
+fr = open(&quot;nonce.txt&quot;,&quot;r&quot;)
+fw = open(&quot;mersenne.txt&quot;,&quot;w&quot;)
+for nonce in fr.readlines():
+    # extract lower bits
+    fw.write(str(int(nonce) &amp; 0xFFFFFFFF))
+    fw.write(&quot;\n&quot;)
+    # extract higher bits
+    fw.write(str(int(nonce) &gt;&gt; 32))
+    fw.write(&quot;\n&quot;)
+
+fr.close()
+fw.close()
+</code></pre>
+<p>We now have a file with 32 bit nonces.</p>
+<pre><code>root@b4a691264693:/usr/src/app# head mersenne.txt
+3992670690
+3823185381
+1358822685
+561383553
+789925284
+170765737
+878579710
+3549516158
+2438360421
+2285257250
+</code></pre>
+<p>Remember given that the last block in the chain is block number 129996, we need to predict the nonce for block 130000 which is four blocks away.</p>
+<p>We can use the <a href="https://github.com/kmyk/mersenne-twister-predictor/blob/master/readme.md">mt19937predict</a> program to predict the next next 8 32-bit nonces ( or the next 4 64-bit nonces )</p>
+<pre><code>:):~/kringle/objective11a/toolkit$tail -624 mersenne.txt | mt19937predict | head -8 &gt; predicted.txt
+:):~/kringle/objective11a/toolkit$cat predicted.txt
+1710059470
+3074734778
+15809261
+25586365
+3180594148
+2219797255
+4079973021
+1460036376
+</code></pre>
+<p>The 64-bit nonce value for block 1300000 can be derived from the last two 32 bit values.</p>
+<p><img alt="combine" src="../../images/obj11/combine.jpg" /></p>
+<p>We need to submit the answer as a hex value</p>
+<pre><code>Python 3.9.1 (default, Jan  5 2021, 06:37:06)
+[GCC 5.4.0 20160609] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; hex(4079973021)
+'0xf32f729d'
+&gt;&gt;&gt; hex(1460036376)
+'0x57066318'
+</code></pre>
+<p>We get the answer as 57066318f32f729d.</p>
+<h2 id="rejoice">Rejoice</h2>
+<p>We predicted the nonce value correctly!</p>
+<blockquote>
+<p>Answer</p>
+<p>57066318f32f729d</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../objective10/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                10) Defeat Fingerprint Sensor
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../objective11b/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                11b) Naughty/Nice List with Blockchain Investigation Part 2
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.expand'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
